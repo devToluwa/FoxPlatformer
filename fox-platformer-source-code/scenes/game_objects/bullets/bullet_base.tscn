@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://sdbcsh50fj4c"]
+
+[ext_resource type="Script" uid="uid://bggbqx1bqdg5x" path="res://scripts/bullet_base.gd" id="1_1ho2y"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fhjk0"]
+radius = 4.0
+
+[node name="Bullet Base" type="Area2D" groups=["Moveables"]]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_1ho2y")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(0.5, 0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_fhjk0")
+
+[node name="DebugLabel" type="Label" parent="."]
+visible = false
+offset_left = -20.0
+offset_top = -13.0
+offset_right = 1064.0
+offset_bottom = 275.0
+scale = Vector2(0.0402856, 0.0402856)
+theme_override_font_sizes/font_size = 211
+text = "bullet_vel: "
+
+[connection signal="area_entered" from="." to="." method="_signal_on_area_entered"]

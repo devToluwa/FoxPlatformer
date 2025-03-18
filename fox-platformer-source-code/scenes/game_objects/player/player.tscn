@@ -1,0 +1,233 @@
+[gd_scene load_steps=17 format=3 uid="uid://b0vs84hgk7dmf"]
+
+[ext_resource type="Texture2D" uid="uid://pncpn0xt4lwu" path="res://assets/player/player.png" id="1_7yc62"]
+[ext_resource type="Script" uid="uid://lexfl0ydpewp" path="res://scripts/player.gd" id="1_o3224"]
+[ext_resource type="PackedScene" uid="uid://da3e6xs6njwaa" path="res://scenes/game_objects/player/player_cam.tscn" id="3_jcwka"]
+[ext_resource type="PackedScene" uid="uid://c00xor2ybyf2t" path="res://scenes/game_objects/shooter.tscn" id="4_tllsk"]
+
+[sub_resource type="Animation" id="Animation_rolko"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [13]
+}
+
+[sub_resource type="Animation" id="Animation_w1bb0"]
+resource_name = "fall"
+length = 0.1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [18]
+}
+
+[sub_resource type="Animation" id="Animation_sk8bj"]
+resource_name = "hurt"
+length = 0.2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [11, 12]
+}
+
+[sub_resource type="Animation" id="Animation_718ju"]
+resource_name = "idle"
+length = 0.4
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [13, 14, 15, 16]
+}
+
+[sub_resource type="Animation" id="Animation_4hl6e"]
+resource_name = "jump"
+length = 0.1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [17]
+}
+
+[sub_resource type="Animation" id="Animation_f60h7"]
+resource_name = "run"
+length = 0.4
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1lk60"]
+_data = {
+&"RESET": SubResource("Animation_rolko"),
+&"fall": SubResource("Animation_w1bb0"),
+&"hurt": SubResource("Animation_sk8bj"),
+&"idle": SubResource("Animation_718ju"),
+&"jump": SubResource("Animation_4hl6e"),
+&"run": SubResource("Animation_f60h7")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3r24s"]
+size = Vector2(10, 18)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7guxs"]
+radius = 6.0
+height = 18.0
+
+[sub_resource type="Animation" id="Animation_mhd5v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_m1srf"]
+resource_name = "invincible"
+length = 0.4
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ph608"]
+_data = {
+&"RESET": SubResource("Animation_mhd5v"),
+&"invincible": SubResource("Animation_m1srf")
+}
+
+[node name="Player" type="CharacterBody2D" groups=["Moveables", "Player"]]
+collision_layer = 0
+script = ExtResource("1_o3224")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_7yc62")
+hframes = 19
+frame = 13
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_1lk60")
+}
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_3r24s")
+
+[node name="Player Cam" parent="." instance=ExtResource("3_jcwka")]
+limit_bottom = 30
+
+[node name="Shooter" parent="." instance=ExtResource("4_tllsk")]
+bullet_speed = 250.0
+bullet_life_span = 4.0
+shoot_delay = 0.2
+
+[node name="Debug Label" type="Label" parent="."]
+visible = false
+offset_left = -24.0
+offset_top = -47.0
+offset_right = 2449.0
+offset_bottom = 1358.0
+scale = Vector2(0.029, 0.029)
+theme_override_font_sizes/font_size = 256
+text = "floor: true, inv: false
+state: idle
+vel: (2.2, 2.4)
+hp: 999"
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 20
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(0, 5)
+shape = SubResource("CapsuleShape2D_7guxs")
+
+[node name="Invincible Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="Hurt Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="Invincible Player" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ph608")
+}
+
+[node name="player_audio" type="AudioStreamPlayer2D" parent="."]
+volume_db = -8.0
+
+[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
+[connection signal="timeout" from="Invincible Timer" to="." method="_on_invincible_timer_timeout"]
+[connection signal="timeout" from="Hurt Timer" to="." method="_on_hurt_timer_timeout"]

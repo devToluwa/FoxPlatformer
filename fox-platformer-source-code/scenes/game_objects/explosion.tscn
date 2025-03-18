@@ -1,0 +1,84 @@
+[gd_scene load_steps=6 format=3 uid="uid://bk7hvx6j751le"]
+
+[ext_resource type="Texture2D" uid="uid://ce88l1l2pbger" path="res://assets/explosion/enemy-deadth.png" id="1_ydxnf"]
+[ext_resource type="AudioStream" uid="uid://8e4nwnnjf6o" path="res://assets/sound/pickup3.ogg" id="2_eomae"]
+
+[sub_resource type="Animation" id="Animation_mx3cu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_c0ndb"]
+resource_name = "explode"
+length = 0.7
+step = 0.1
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("explosion sound")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("2_eomae")
+}],
+"times": PackedFloat32Array(0.1)
+}
+tracks/0/use_blend = true
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.7),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aqr0c"]
+_data = {
+&"RESET": SubResource("Animation_mx3cu"),
+&"explode": SubResource("Animation_c0ndb")
+}
+
+[node name="Explosion" type="Sprite2D"]
+texture_filter = 1
+texture = ExtResource("1_ydxnf")
+hframes = 6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_aqr0c")
+}
+autoplay = "explode"
+
+[node name="explosion sound" type="AudioStreamPlayer2D" parent="."]

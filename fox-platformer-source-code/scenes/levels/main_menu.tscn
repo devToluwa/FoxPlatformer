@@ -1,0 +1,91 @@
+[gd_scene load_steps=6 format=3 uid="uid://dsne56jbq87ij"]
+
+[ext_resource type="Texture2D" uid="uid://dboxc01u8d6gb" path="res://assets/backgrounds/game_background_4/game_background_4.png" id="1_scvbm"]
+[ext_resource type="Script" uid="uid://dtp7m63xihje" path="res://scripts/main_menu.gd" id="1_y7fe6"]
+[ext_resource type="LabelSettings" uid="uid://dgkqd56s23mfw" path="res://assets/LG_pink_96.tres" id="2_c0xx1"]
+[ext_resource type="AudioStream" uid="uid://durff15lun64c" path="res://assets/sound/Farm Frolics.ogg" id="3_8ro6h"]
+[ext_resource type="LabelSettings" uid="uid://c57087kb6t0iv" path="res://assets/LG_white_48.tres" id="4_fkd6t"]
+
+[node name="Main Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_y7fe6")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_scvbm")
+expand_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0.145098, 0.560784)
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.5
+offset_top = -11.5
+offset_right = 22.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "FOX THINGS"
+label_settings = ExtResource("2_c0xx1")
+
+[node name="Press Space to start" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -249.0
+offset_top = 69.0
+offset_right = 249.0
+offset_bottom = 166.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "PRESS THE ASPACEBAR TO START"
+label_settings = ExtResource("4_fkd6t")
+
+[node name="BG Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_8ro6h")
+volume_db = -14.0
+autoplay = true
+
+[node name="MC" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -24.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 24
+
+[node name="GridContainer" type="GridContainer" parent="MC"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/h_separation = 12
+theme_override_constants/v_separation = 12
+columns = 5

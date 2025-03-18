@@ -1,0 +1,218 @@
+[gd_scene load_steps=7 format=3 uid="uid://c58ra3efgq3y7"]
+
+[ext_resource type="Script" uid="uid://biycv4d2sa8na" path="res://scripts/hud.gd" id="1_1ac78"]
+[ext_resource type="LabelSettings" uid="uid://cx3aywjbl5wn7" path="res://resources/LG_white_48.tres" id="1_kiibu"]
+[ext_resource type="Texture2D" uid="uid://dc7n8un4t1ae5" path="res://assets/items/pixel heart 2.png" id="2_5eux7"]
+[ext_resource type="LabelSettings" uid="uid://ommupi7h6t6x" path="res://resources/LG_blue_64.tres" id="3_ap134"]
+[ext_resource type="LabelSettings" uid="uid://dwoj7dgthifc0" path="res://assets/LG_white_24.tres" id="4_gmtaw"]
+[ext_resource type="AudioStream" uid="uid://mkpv6yg5w0df" path="res://assets/sound/game_over.ogg" id="6_euq0m"]
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1ac78")
+
+[node name="MC" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="HB" type="HBoxContainer" parent="MC"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Score Label" type="Label" parent="MC/HB"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "9999"
+label_settings = ExtResource("1_kiibu")
+
+[node name="HB Hearts" type="HBoxContainer" parent="MC/HB"]
+layout_mode = 2
+
+[node name="Heart 1" type="TextureRect" parent="MC/HB/HB Hearts"]
+layout_mode = 2
+texture = ExtResource("2_5eux7")
+stretch_mode = 4
+
+[node name="Heart 2" type="TextureRect" parent="MC/HB/HB Hearts"]
+layout_mode = 2
+texture = ExtResource("2_5eux7")
+stretch_mode = 4
+
+[node name="Heart 3" type="TextureRect" parent="MC/HB/HB Hearts"]
+layout_mode = 2
+texture = ExtResource("2_5eux7")
+stretch_mode = 4
+
+[node name="Heart 4" type="TextureRect" parent="MC/HB/HB Hearts"]
+layout_mode = 2
+texture = ExtResource("2_5eux7")
+stretch_mode = 4
+
+[node name="Heart 5" type="TextureRect" parent="MC/HB/HB Hearts"]
+layout_mode = 2
+texture = ExtResource("2_5eux7")
+stretch_mode = 4
+
+[node name="Heart 6" type="TextureRect" parent="MC/HB/HB Hearts"]
+layout_mode = 2
+texture = ExtResource("2_5eux7")
+stretch_mode = 4
+
+[node name="Heart 7" type="TextureRect" parent="MC/HB/HB Hearts"]
+layout_mode = 2
+texture = ExtResource("2_5eux7")
+stretch_mode = 4
+
+[node name="Heart 8" type="TextureRect" parent="MC/HB/HB Hearts"]
+layout_mode = 2
+texture = ExtResource("2_5eux7")
+stretch_mode = 4
+
+[node name="Heart 9" type="TextureRect" parent="MC/HB/HB Hearts"]
+layout_mode = 2
+texture = ExtResource("2_5eux7")
+stretch_mode = 4
+
+[node name="Heart 10" type="TextureRect" parent="MC/HB/HB Hearts"]
+layout_mode = 2
+texture = ExtResource("2_5eux7")
+stretch_mode = 4
+
+[node name="Heart 11" type="TextureRect" parent="MC/HB/HB Hearts"]
+layout_mode = 2
+texture = ExtResource("2_5eux7")
+stretch_mode = 4
+
+[node name="Heart 12" type="TextureRect" parent="MC/HB/HB Hearts"]
+layout_mode = 2
+texture = ExtResource("2_5eux7")
+stretch_mode = 4
+
+[node name="Heart 13" type="TextureRect" parent="MC/HB/HB Hearts"]
+layout_mode = 2
+texture = ExtResource("2_5eux7")
+stretch_mode = 4
+
+[node name="Heart 14" type="TextureRect" parent="MC/HB/HB Hearts"]
+layout_mode = 2
+texture = ExtResource("2_5eux7")
+stretch_mode = 4
+
+[node name="Heart 15" type="TextureRect" parent="MC/HB/HB Hearts"]
+layout_mode = 2
+texture = ExtResource("2_5eux7")
+stretch_mode = 4
+
+[node name="Heart 16" type="TextureRect" parent="MC/HB/HB Hearts"]
+layout_mode = 2
+texture = ExtResource("2_5eux7")
+stretch_mode = 4
+
+[node name="Heart 17" type="TextureRect" parent="MC/HB/HB Hearts"]
+layout_mode = 2
+texture = ExtResource("2_5eux7")
+stretch_mode = 4
+
+[node name="Heart 18" type="TextureRect" parent="MC/HB/HB Hearts"]
+layout_mode = 2
+texture = ExtResource("2_5eux7")
+stretch_mode = 4
+
+[node name="Heart 19" type="TextureRect" parent="MC/HB/HB Hearts"]
+layout_mode = 2
+texture = ExtResource("2_5eux7")
+stretch_mode = 4
+
+[node name="Heart 20" type="TextureRect" parent="MC/HB/HB Hearts"]
+layout_mode = 2
+texture = ExtResource("2_5eux7")
+stretch_mode = 4
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.00392157, 0.0980392, 0.607843)
+
+[node name="VB Level Complete" type="VBoxContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label Level Completed" type="Label" parent="ColorRect/VB Level Complete"]
+layout_mode = 2
+text = "LEVEL COMPLETED"
+label_settings = ExtResource("3_ap134")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label press space next level" type="Label" parent="ColorRect/VB Level Complete"]
+layout_mode = 2
+text = "Press the spacebar for Next level"
+label_settings = ExtResource("4_gmtaw")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VB Game Over" type="VBoxContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label Game Over" type="Label" parent="ColorRect/VB Game Over"]
+layout_mode = 2
+text = "GAME OVER"
+label_settings = ExtResource("3_ap134")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label press space main menu" type="Label" parent="ColorRect/VB Game Over"]
+layout_mode = 2
+text = "Press the spacebar for the main menu"
+label_settings = ExtResource("4_gmtaw")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="game over sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_euq0m")
+volume_db = -30.58
+pitch_scale = 1.84
+
+[node name="Continue Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="Continue Timer" to="." method="_on_continue_timer_timeout"]

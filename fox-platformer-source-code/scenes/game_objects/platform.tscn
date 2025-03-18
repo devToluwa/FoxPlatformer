@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://cnp26digc72ed"]
+
+[ext_resource type="PackedScene" uid="uid://o582tuad37g2" path="res://scenes/game_objects/moving_platform.tscn" id="1_tkxuw"]
+
+[node name="Platform" type="Node2D"]
+
+[node name="P1" type="Marker2D" parent="."]
+position = Vector2(480, -56)
+
+[node name="moving platform" parent="." node_paths=PackedStringArray("destination") instance=ExtResource("1_tkxuw")]
+position = Vector2(384, -56)
+destination = NodePath("../P1")
